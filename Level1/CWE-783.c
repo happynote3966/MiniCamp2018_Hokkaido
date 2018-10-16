@@ -12,11 +12,13 @@ void login_failed(void){
 
 unsigned auth(void){
 	unsigned int input_passcode;
-	scanf("%d",input_passcode);
+
+	printf("Input your password : ");
+	scanf("%d",&input_passcode);
 	if(input_passcode == passcode){
-		return 1;
-	}else{
 		return 0;
+	}else{
+		return 1;
 	}
 }
 
