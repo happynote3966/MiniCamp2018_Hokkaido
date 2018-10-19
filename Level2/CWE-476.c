@@ -1,14 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
 char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-
 
 int main(void){
 	char c;
 	char *pointer;
 
-	getc(c);
+	c = getc(stdin);
 
 	pointer = strchr(alphabet,c);
 

@@ -10,7 +10,7 @@ int main(void){
 
 	gets(buf);
 
-	printf(buf);
+	puts(buf);
 
 	return 0;
 }

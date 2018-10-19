@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
 #include <fcntl.h>
 
 int main(int argc, char *argv[]){
-	char *buf,*token;
-	short count = 0;
+	int fd,ret;
 	unsigned int file_size;
-	int fd,ret,i,is_count;
+	char *file_buffer,*token;
+	char output_buffer[100];
+
 
 	fd = open(argv[1],O_RDONLY);
 
@@ -21,7 +22,7 @@ int main(int argc, char *argv[]){
 
 	file_size = lseek(fd,0,SEEK_END);
 
-	if(file_size == -1){
+	if(file_size == -1 || file_size > 4294967296){
 		printf("lseek() ERROR!\n");
 		exit(-1);
 	}
@@ -33,29 +34,29 @@ int main(int argc, char *argv[]){
 		exit(-1);
 	}
 
-	buf = (char *)malloc(sizeof(char) * file_size);
+	file_buffer = (char *)malloc(sizeof(char) * file_size);
 
-	if(buf == NULL){
+	if(file_buffer == NULL){
 		printf("malloc() ERROR!\n");
 		exit(-1);
 	}
 
-	ret = read(fd,buf,file_size);
+	ret = read(fd,file_buffer,file_size);
 
 	if(ret == -1){
 		printf("read() ERROR!\n");
 		exit(-1);
 	}
 
+	token = strtok(file_buffer," \n");
 
-	token = strtok(buf," \n");
-	
 	while(token != NULL){
-		count++;
+		strcpy(output_buffer,token);
+		puts(output_buffer);
 		token = strtok(NULL," \n");
 	}
 
-	printf("File size is %d words\n",count);
-
 	return 0;
 }
+
+

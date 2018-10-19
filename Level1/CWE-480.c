@@ -16,7 +16,7 @@ int main(void){
 	printf("Input you passcode : ");
 	scanf("%d",&input_passcode);
 
-	if(input_passcode = passcode){
+	if(passcode = input_passcode){
 		login();
 	}else{
 		login_failed();

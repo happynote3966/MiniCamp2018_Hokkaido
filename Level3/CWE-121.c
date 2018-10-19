@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 
-char hellostring[] = "Hello!"
+char hellostring[] = "Hello!";
 
 void login(void){
 	puts("OK! Login!");
@@ -10,7 +11,7 @@ int main(void){
 	char name[20];
 	char buf[20];
 
-	printf("Input your name :");
+	printf("Input your name : ");
 	fgets(name,sizeof(name)-1,stdin);
 
 	memcpy(buf,hellostring,sizeof(hellostring));

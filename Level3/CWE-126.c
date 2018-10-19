@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 char secretstring[] = "I_want_to_be_a_WHITE_Hacker!";
 
