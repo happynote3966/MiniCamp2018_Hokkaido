@@ -8,6 +8,8 @@ void login(void){
 int main(void){
 	char buf[30];
 
+	printf("Input your name : ");
+
 	gets(buf);
 
 	puts(buf);

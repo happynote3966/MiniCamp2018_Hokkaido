@@ -10,20 +10,21 @@ void login_failed(void){
 }
 
 int main(void){
-	int number;
-	char buf[15];
-	fgets(buf,14,stdin);
+	short number;
+	char buf[11];
 
-	if(atol(buf) > 2147483647){
+	printf("Input your number : ");
+
+	fgets(buf,sizeof(buf),stdin);
+
+	if(atoi(buf) > 32767){
+		puts("ERROR! Do not Enter the Large Number!");
 		number = 0;
 	}else{
 		number = atoi(buf);
 	}
 
-	
-
-
-	if((unsigned int)number > 2147483647){
+	if((unsigned short)number > 32767){
 		login();
 	}else{
 		login_failed();

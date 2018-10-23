@@ -14,9 +14,12 @@ int main(void){
 	char buf[30];
 	unsigned int passcode;
 
+	printf("Input your name : ");
+
 	fgets(buf,sizeof(buf)-1,stdin);
 
 	printf(buf);
+	printf("\n");
 
 	puts("By the way, input your passcode : ");
 
