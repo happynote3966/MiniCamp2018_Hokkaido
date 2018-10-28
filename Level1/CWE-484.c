@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>	// strcmp
+#include <string.h>
 
 char password[9] = "p@ssword";
 
@@ -12,7 +12,7 @@ void login_failed(void){
 }
 
 int auth(char *input_password){
-	if(strcmp(password,input_password) == 0){
+	if(strncmp(password,input_password,8) == 0){
 		return 0;
 	}else{
 		return 1;

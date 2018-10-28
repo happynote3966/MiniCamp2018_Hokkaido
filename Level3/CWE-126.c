@@ -28,7 +28,7 @@ int main(void){
 	printf("\nBy the way, input your password : ");
 	fgets(password_buf,sizeof(password_buf),stdin);
 
-	if(strncmp(password_buf,buf,strlen(buf)) == 0){
+	if(strncmp(password_buf,buf,8) == 0){
 		login();
 	}else{
 		login_failed();
