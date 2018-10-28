@@ -10,6 +10,7 @@ void login_failed(void){
 }
 
 int main(void){
+	int tmp_number;
 	short number;
 	char buf[11];
 
@@ -17,14 +18,16 @@ int main(void){
 
 	fgets(buf,sizeof(buf),stdin);
 
-	if(atoi(buf) > 32767){
+	if(atoi(buf) < 0){
 		puts("ERROR! Do not Enter the Large Number!");
-		number = 0;
+		tmp_number = 0;
 	}else{
-		number = atoi(buf);
+		tmp_number = atoi(buf);
 	}
 
-	if((unsigned short)number > 32767){
+	number = tmp_number;
+
+	if(number < 0){
 		login();
 	}else{
 		login_failed();

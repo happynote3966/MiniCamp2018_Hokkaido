@@ -15,12 +15,12 @@ void login_failed(void){
 
 int main(void){
 	int user_size;
-	char *ptr,*ptr2;
+	char *ptr1,*ptr2;
 	char password_buffer[20];
 
-	ptr = (char *)malloc(sizeof(char) * 100);
+	ptr1 = (char *)malloc(sizeof(char) * 100);
 
-	strncpy(ptr,secret,sizeof(secret));
+	strncpy(ptr1,secret,sizeof(secret));
 
 	printf("Input realloc length : ");
 	scanf("%d%*c",&user_size);
@@ -30,7 +30,7 @@ int main(void){
 		exit(-1);
 	}
 
-	ptr2 = (char *)realloc(ptr,user_size);
+	ptr2 = (char *)realloc(ptr1,user_size);
 
 	read(0,ptr2,user_size);
 	puts(ptr2);

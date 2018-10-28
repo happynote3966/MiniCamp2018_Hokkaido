@@ -6,7 +6,12 @@
 int main(void){
 	char *ptr;
 
+	setvbuf(stdin,0x0,_IONBF,0x0);
+	setvbuf(stdout,0x0,_IONBF,0x0);
+
 	ptr = malloc(sizeof(char) * 20);
+
+	printf("Input your message : ");
 
 	read(0,ptr,19);
 	

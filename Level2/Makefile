@@ -1,4 +1,4 @@
-level1: CWE-128.c CWE-134.c CWE-191.c CWE-194.c CWE-242.c CWE-476.c
+level2: CWE-128.c CWE-134.c CWE-191.c CWE-194.c CWE-242.c CWE-476.c
 	gcc -o CWE-128 -m32 CWE-128.c
 	gcc -o CWE-134 -m32 CWE-134.c -Wno-format-security
 	gcc -o CWE-191 -m32 CWE-191.c

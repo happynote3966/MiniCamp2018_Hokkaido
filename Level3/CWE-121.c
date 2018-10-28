@@ -1,21 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
-char hellostring[] = "Hello!";
-
 void login(void){
 	puts("OK! Login!");
 }
 
+
 int main(void){
-	char name[20];
 	char buf[20];
+	char name[20];
 
 	printf("Input your name : ");
-	fgets(name,sizeof(name)-1,stdin);
+	fgets(name,sizeof(name),stdin);
 
-	memcpy(buf,hellostring,sizeof(hellostring));
-	memcpy(buf+sizeof(hellostring),name,sizeof(name));
+	strcpy(buf,"Hello! ");
+	strncat(buf,name,strlen(name));
 
 	printf("%s",buf);
 
