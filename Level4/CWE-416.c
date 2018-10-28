@@ -13,24 +13,24 @@ void login_failed(void){
 
 int main(void){
 	char password_buf[10];
+	char size_buf[10];
 	int select,loop = 1;
 	char *ptr;
 
-	ptr = malloc(sizeof(char) * 20);
-	strncpy(ptr,"cafebabe",8);
+	setvbuf(stdin,0x0,_IONBF,0x0);
+	setvbuf(stdout,0x0,_IONBF,0x0);
+
+	ptr = malloc(sizeof(char) * 24);
+	strncpy(ptr,"[!] Password is cafebabe",24);
+	free(ptr);
 
 	while(loop){
-		printf("1. Allocate memory\n");
-		printf("2. Free memory\n");
-		printf("3. Input memory\n");
-		printf("4. Output memory\n");
-		printf("Other : Exit\n");
 		printf("Input your command : ");
 		scanf("%d%*c",&select);
 		switch(select){
 			case 1:
 				puts("Allocate memory");
-				ptr = malloc(sizeof(char) * 20);
+				ptr = malloc(sizeof(char) * 24);
 				break;
 			case 2:
 				puts("Free memory");
@@ -38,8 +38,10 @@ int main(void){
 				break;
 			case 3:
 				puts("Input memory");
-				read(0,ptr,19);
-				ptr[19] = '\0';
+				printf("Input your size : ");
+				read(0,size_buf,9);
+				printf("Input your content : ");
+				read(0,ptr,atoi(size_buf));
 				break;
 			case 4:
 				puts("Output memory");

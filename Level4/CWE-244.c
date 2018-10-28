@@ -18,6 +18,9 @@ int main(void){
 	char *ptr1,*ptr2;
 	char password_buffer[20];
 
+	setvbuf(stdin,0x0,_IONBF,0x0);
+	setvbuf(stdout,0x0,_IONBF,0x0);
+
 	ptr1 = (char *)malloc(sizeof(char) * 100);
 
 	strncpy(ptr1,secret,sizeof(secret));
@@ -25,17 +28,19 @@ int main(void){
 	printf("Input realloc length : ");
 	scanf("%d%*c",&user_size);
 
-	if(user_size < 0 && user_size > 4096){
-		puts("Too large size!\n");
+	if(user_size <= 0 || user_size > 4096){
+		puts("Too large or small size!\n");
 		exit(-1);
 	}
 
 	ptr2 = (char *)realloc(ptr1,user_size);
 
+	printf("Input your content : ");
+
 	read(0,ptr2,user_size);
 	puts(ptr2);
 
-	puts("By the way, input your password : ");
+	printf("By the way, input your password : ");
 
 	fgets(password_buffer,sizeof(password_buffer)-1,stdin);
 
