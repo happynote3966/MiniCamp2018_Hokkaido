@@ -12,7 +12,7 @@ void login_failed(void){
 }
 
 int auth(char *input_password){
-	if(strncmp(password,input_password,8) == 0){
+	if(strcmp(password,input_password) == 0){
 		return 0;
 	}else{
 		return 1;
