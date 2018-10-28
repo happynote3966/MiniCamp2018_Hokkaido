@@ -14,8 +14,13 @@ void login_failed(void){
 int main(void){
 	unsigned int input_passcode;
 	unsigned int zero_variable;
-	printf("Input your passcode :");
-	scanf("%d",&input_asscode);
+
+	printf("Input your passcode : ");
+	scanf("%d",&input_passcode);
+
+	printf("input_passcode = %d\n",input_passcode);
+	printf("passcode       = %d\n",passcode);
+	printf("zero_variable  = %d\n",zero_variable);
 
 	if(passcode - input_passcode == zero_variable){
 		login();

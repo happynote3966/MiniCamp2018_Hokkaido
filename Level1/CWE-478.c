@@ -1,14 +1,22 @@
 #include <stdio.h>
-#include <string.h>
 
 void login(void){
 	puts("OK! Login!");
 }
 
+void login_failed(void){
+	puts("NO! Login Failed!");
+}
+
+
 int main(void){
 	unsigned int passcode;
-	printf("Input your passcode :");
+
+	printf("This program accept 4 passwords\n");
+	printf("Input your passcode : ");
+
 	scanf("%d",&passcode);
+
 	switch(passcode){
 		case 3966:
 			break;
@@ -19,6 +27,8 @@ int main(void){
 		case 0xdeadbeef:	// 3735928559 in Decimal
 			break;
 	}
+
 	login();
+
 	return 0;
 }
