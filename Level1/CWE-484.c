@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>	// strcmp
+#include <string.h>
 
 char password[9] = "p@ssword";
 
